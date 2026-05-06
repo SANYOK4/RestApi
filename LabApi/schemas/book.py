@@ -1,5 +1,4 @@
 from pydantic import BaseModel, Field
-from uuid import UUID
 from typing import Optional
 from enum import Enum
 
@@ -12,10 +11,12 @@ class BookBase(BaseModel):
     author: str = Field(..., min_length=1)
     description: Optional[str] = None
     year: int = Field(..., gt=0, lt=2100)
-    status: BookStatus = BookStatus.AVAILABLE
 
 class BookCreate(BookBase):
     pass
 
 class Book(BookBase):
-    id: UUID
+    id: int # Змінив UUID на int, щоб було простіше для початку
+
+    class Config:
+        from_attributes = True
