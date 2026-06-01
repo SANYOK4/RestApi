@@ -3,7 +3,6 @@ from api.router import router
 from models.database import engine, Base
 app = FastAPI()
 
-# Автоматичне створення таблиць при запуску
 @app.on_event("startup")
 async def startup():
     async with engine.begin() as conn:
