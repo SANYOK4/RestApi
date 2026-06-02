@@ -1,0 +1,6 @@
+flask
+flask-restful
+flask-sqlalchemy
+flasgger
+marshmallow
+psycopg2-binary
